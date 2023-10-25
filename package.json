@@ -2,6 +2,10 @@
   "name": "next-example",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.8.1",
+    "npm": "10.1.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +16,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@types/node": "20.4.4",
+    "@types/node": "20.8.1",
     "@types/react": "18.2.16",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
