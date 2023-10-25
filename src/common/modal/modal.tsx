@@ -34,7 +34,7 @@ export const Modal = ({
     return () => {
       document.removeEventListener('keydown', escFunction);
     };
-  }, []);
+  }, [onClose]);
 
   if (!isOpen) return null;
 

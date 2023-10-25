@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Button } from 'common/button';
-import { TextField } from 'common/text-field';
+import { Button } from '@/common/button';
+import { TextField } from '@/common/text-field';
 import styles from './login.module.scss';
 
 export const Login = () => {

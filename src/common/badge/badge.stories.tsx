@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Avatar } from 'common/avatar';
+import { Avatar } from '@/common/avatar';
 import { Badge } from './badge';
 
 export default {
@@ -27,17 +27,6 @@ export const Default = Template.bind({});
 
 export const Closeable = Template.bind({});
 Closeable.args = {
-  closeable: true,
-};
-
-export const WithLeftElement = Template.bind({});
-WithLeftElement.args = {
-  leftElement: <Avatar size="xs" />,
-};
-
-export const WithLeftElementAndCloseable = Template.bind({});
-WithLeftElementAndCloseable.args = {
-  leftElement: <Avatar size="xs" />,
   closeable: true,
 };
 
