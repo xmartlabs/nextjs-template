@@ -1,7 +1,4 @@
-import { RouteName } from '@/helpers/routes';
 import globalStyles from 'assets/stylesheets/global-styles.module.scss';
-// import { AppLink } from '@/common/app-link';
-// import { Avatar } from '@/common/avatar';
 import styles from './navbar.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,7 +9,7 @@ export const Navbar = () => (
     <div className={globalStyles.genericContainer}>
       <div className={styles.internalContainer}>
         <div>
-          <Link href={RouteName.Home}>
+          <Link href="/">
             <Image
               src={nextLogo}
               alt="Next.js Logo"
@@ -23,11 +20,10 @@ export const Navbar = () => (
         </div>
         <div className={styles.rightContainer}>
           <nav>
-            <Link className={globalStyles.link} href={RouteName.About}>
+            <Link className={globalStyles.link} href="/about">
               About
             </Link>
           </nav>
-          {/* <Avatar size="s" /> */}
         </div>
       </div>
     </div>
