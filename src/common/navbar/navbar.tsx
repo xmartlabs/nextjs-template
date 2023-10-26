@@ -1,6 +1,4 @@
 import globalStyles from 'assets/stylesheets/global-styles.module.scss';
-// import { AppLink } from '@/common/app-link';
-// import { Avatar } from '@/common/avatar';
 import styles from './navbar.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,7 +24,6 @@ export const Navbar = () => (
               About
             </Link>
           </nav>
-          {/* <Avatar size="s" /> */}
         </div>
       </div>
     </div>
