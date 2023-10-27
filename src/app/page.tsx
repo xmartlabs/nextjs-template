@@ -1,4 +1,4 @@
-import Home from "./(navFooter)/home/page";
+import Home from "./home/page";
 
 export default function HomePage() {
   return (
