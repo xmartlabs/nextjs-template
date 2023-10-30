@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { TextField } from './text-field';
-import MailSVG from '../../../public/assets/icons/mail.svg';
-import CloseSVG from '../../../public/assets/icons/close.svg';
+import MailSVG from 'public/assets/icons/mail.svg';
+import CloseSVG from 'public/assets/icons/close.svg';
 
 describe('TextField', () => {
   it('should render successfully', async () => {
