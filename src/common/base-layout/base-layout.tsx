@@ -9,20 +9,13 @@ interface BaseLayoutProps {
 }
 
 export const BaseLayout : React.FC<BaseLayoutProps> = ({withNavbar = false, withFooter = false, children}) => {
-  if (withNavbar) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.internalContainer}>
-          {withNavbar && <Navbar />}
-          {children}
-        </div>
-        {withFooter && <Footer />}
-      </div>
-    )
-  }
   return (
-    <>
-      {children}
-    </>
+    <div className={styles.container}>
+      <div className={styles.internalContainer}>
+        {withNavbar && <Navbar />}
+        {children}
+      </div>
+      {withFooter && <Footer />}
+    </div>
   )
 }
