@@ -1,0 +1,31 @@
+x-common:
+  &common
+  image: 'node:20.8.1'
+  when:
+    - event: pull_request
+
+pipeline:
+  setup:
+    <<: *common
+    commands:
+      - npm ci --prefer-offline
+  build-and-lint:
+    <<: *common
+    group: build
+    commands:
+      # NOTE: a build step is needed before linting since
+      # Next generates the type file after buildling or running the
+      # dev server.
+      - npm run build
+      - npm run lint
+      - npm run tsc
+  sass-lint:
+    <<: *common
+    group: build
+    commands:
+      - npm run stylelint
+  js-test:
+    <<: *common
+    group: build
+    commands:
+      - npm run test
