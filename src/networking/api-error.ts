@@ -1,24 +1,25 @@
-enum ErrorCode {
-  // Add more error codes here
-  GenericError = '10001',
+import { ErrorCode } from "@/types/error-code";
+
+type ErrorDescriptor = {
+  [key: string]: (string[] | string)
 }
 
-enum ErrorStatus {
-  BadRequest = 400,
-  Unauthorized = 401,
-  PreconditionFailed = 412,
-  ServerError = 500,
+type ConstructorType = {
+  message: string;
+  code: ErrorCode;
+  errors?: ErrorDescriptor;
 }
 
 class ApiError extends Error {
-  status: number | null;
+  code: ErrorCode;
 
-  code: number | null;
+  errors?: ErrorDescriptor
 
-  constructor(params: RawApiError) {
+  constructor(params: ConstructorType) {
     super(String(params.message));
-    this.status = params.status;
     this.code = params.code;
+    this.errors = params.errors;
+    this.message = params.message;
     /*
       We need to set the prototype manually since Babel and other transpilers have trouble
       setting prototypes when extending native classes like `Error`. You can read
@@ -33,4 +34,4 @@ class ApiError extends Error {
   }
 }
 
-export { ApiError, ErrorCode, ErrorStatus };
+export { ApiError };

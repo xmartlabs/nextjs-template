@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import { constants } from '@/config/constants';
 import { ApiError } from './api-error';
+import { ErrorCode } from '@/types/error-code';
 
 enum HttpMethod {
   Get = 'get',
@@ -48,12 +49,11 @@ class ApiServiceClass {
         throw new ApiError({
           code: error.response.data.code,
           message: error.response.data.message,
-          status: error.response.status,
+          errors: error.response.data.errors,
         });
       }
       throw new ApiError({
-        status: null,
-        code: null,
+        code: ErrorCode.UNEXPECTED_ERROR,
         message: error.message,
       });
     }
