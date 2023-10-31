@@ -6,36 +6,76 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 * Node 20.8.1
 * NPM 10.1.0
+* NextJS 13
 
-## Getting Started
+## Creating a Project
 
-First, run the development server:
+TBD
+
+## Contributing
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Then, copy the environment variables file and define the variables as needed:
+
+```sh
+cp .env.example .env.local
+```
+
+Request the variables from team members.
+
+You're ready! Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* `src/app`: the typical directory for NextJS pages. This project uses Next's App Router. Read on for information on how layouts work on this project.
+  * `src/app/api`: all API routes go here.
+* `src/common`: all components used across pages go here.
+* `src/helpers`: TS code that does not really fit anywhere else goes here. Think helper functions that do not render React components.
+* `src/networking`: logic related to networking is stored here. Mostly files used by the frontend (the API service, controllers).
+  * `src/networking/controllers`: these are classes defined on the frontend that serve as touch points with the backend. They organize requests to the backend centrally and around a specific concern (user-related endpoints go together).
+* `src/stories`: Storybook stories for components.
+* `src/types`: Store here types that are used end-to-end. These applies specifically to data that is exchanged between client and server (e.g. the `User` model).
 
-## Learn More
+## Layouts
 
-To learn more about Next.js, take a look at the following resources:
+Our pages are flattened (mostly) inside the `app` directory. This means that each page needs its own layout. But fear not! There's a `BaseLayout` component that makes adding a layout easy. Simply create a layout file that renders that component and that's it!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This code renders a layout that has a navbar and a footer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```ts
+// src/app/pages/my-new-page/layout.tsx
+import { BaseLayout } from '@/common/base-layout/base-layout';
 
-## Deploy on Vercel
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <BaseLayout withNavbar withFooter>{children}</BaseLayout>
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Zod Schemas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In order to validate schemas and have a resilient type system, this projec uses [Zod](https://zod.dev/) to define and validate schemas for data (not to be confused with the database schema). All Zod schemas are stored in the `src/types` directory. To create a new schema (e.g. the `Foo` schema), create a type file like so:
+
+```ts
+// src/types/foo.ts
+import { z } from "zod";
+
+export const Foo = z.object({
+  bar: z.string(),
+  baz: z.number(),
+});
+
+export type Foo = z.infer<typeof Foo>
+```
+
+## Error Handling
