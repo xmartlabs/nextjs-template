@@ -1,4 +1,3 @@
-'use client';
 import { classnames } from '@/helpers/utils';
 import styles from './home.module.scss';
 
