@@ -20,6 +20,11 @@ pipeline:
       - npm run build
       - npm run lint
       - npm run tsc
+  prettier:
+    <<: *common
+    group: build
+    commands:
+      - npm run prettier:check -- --support-info
   sass-lint:
     <<: *common
     group: build
