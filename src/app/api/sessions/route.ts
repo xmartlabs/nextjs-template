@@ -10,7 +10,7 @@ const mockedCredentials = {
   password: 'password1',
 };
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
   try {
     const jsonRequest = await request.json();
     const params = CreateSession.parse(jsonRequest);
