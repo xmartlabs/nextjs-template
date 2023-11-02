@@ -3,7 +3,7 @@
   they are centrally documented.
 */
 const API_ROUTES = {
-  SESSIONS: '/api/sessions',
+  SESSIONS: "/api/sessions",
 };
 
 export { API_ROUTES };

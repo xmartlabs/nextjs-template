@@ -1,6 +1,6 @@
-import { Navbar } from '../navbar';
-import { Footer } from '../footer';
-import styles from './base-layout.module.scss';
+import { Navbar } from "../navbar";
+import { Footer } from "../footer";
+import styles from "./base-layout.module.scss";
 
 interface BaseLayoutProps {
   withNavbar?: boolean;
@@ -8,7 +8,11 @@ interface BaseLayoutProps {
   children: React.ReactNode;
 }
 
-export const BaseLayout : React.FC<BaseLayoutProps> = ({withNavbar = false, withFooter = false, children}) => {
+export const BaseLayout: React.FC<BaseLayoutProps> = ({
+  withNavbar = false,
+  withFooter = false,
+  children,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.internalContainer}>
@@ -17,5 +21,5 @@ export const BaseLayout : React.FC<BaseLayoutProps> = ({withNavbar = false, with
       </div>
       {withFooter && <Footer />}
     </div>
-  )
-}
+  );
+};

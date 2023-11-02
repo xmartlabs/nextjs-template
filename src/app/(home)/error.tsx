@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // TODO: Implement this component
 const UnexpectedError = () => (
   <div>

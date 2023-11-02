@@ -1,1 +1,1 @@
-import { BaseLayout } from './base-layout';
+import { BaseLayout } from "./base-layout";

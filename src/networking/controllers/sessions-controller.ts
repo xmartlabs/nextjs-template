@@ -1,6 +1,6 @@
-import { ApiService } from '@/networking/api-service';
-import { API_ROUTES } from '@/networking/api-routes';
-import { CreateSession } from '@/types/session';
+import { ApiService } from "@/networking/api-service";
+import { API_ROUTES } from "@/networking/api-routes";
+import { CreateSession } from "@/types/session";
 
 /*
   NOTE: this file serves only as an example and is not used.
@@ -12,7 +12,7 @@ class SessionsController {
   static login(email: string, password: string) {
     return ApiService.post<CreateSession>(API_ROUTES.SESSIONS, {
       email,
-      password
+      password,
     });
   }
 }
