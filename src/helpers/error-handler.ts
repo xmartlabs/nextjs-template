@@ -33,7 +33,8 @@ export const handleError = (error: any) => {
     console.log(error);
     return NextResponse.json(formatApiError(error), { status: 400 });
   }
-  // TODO: log this error.
+  // TODO: log this error to an error tracker.
+  console.error(error);
   return NextResponse.json(
     formatApiError(
       new ApiError({
