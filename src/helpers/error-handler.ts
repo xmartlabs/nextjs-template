@@ -1,21 +1,26 @@
-import { ApiError } from '@/networking/api-error';
-import { ErrorCode } from '@/types/error-code';
+import { ApiError } from "@/networking/api-error";
+import { ErrorCode } from "@/types/error-code";
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 
 const formatApiError = (apiError: ApiError) => ({
   ...apiError,
-  message: apiError.message
-})
+  message: apiError.message,
+});
 
 const formatZodError = (error: ZodError) => {
-  const errors = error.issues.reduce((acc, issue) => ({...acc, [issue.path.join('.')]: issue.message}), {});
+  const errors = error.issues.reduce(
+    (acc, issue) => ({ ...acc, [issue.path.join(".")]: issue.message }),
+    {},
+  );
 
-  return formatApiError(new ApiError({
-    errors,
-    code: ErrorCode.INVALID_SCHEMA,
-    message: 'Schema validation failed',
-  }));
+  return formatApiError(
+    new ApiError({
+      errors,
+      code: ErrorCode.INVALID_SCHEMA,
+      message: "Schema validation failed",
+    }),
+  );
 };
 
 // NOTE: this is loosely typed on purpose, so we can catch any kind of
@@ -29,8 +34,13 @@ export const handleError = (error: any) => {
     return NextResponse.json(formatApiError(error), { status: 400 });
   }
   // TODO: log this error.
-  return NextResponse.json(formatApiError(new ApiError({
-    code: ErrorCode.UNEXPECTED_ERROR,
-    message: 'An unexpected error has occurred',
-  })), { status: 500 })
+  return NextResponse.json(
+    formatApiError(
+      new ApiError({
+        code: ErrorCode.UNEXPECTED_ERROR,
+        message: "An unexpected error has occurred",
+      }),
+    ),
+    { status: 500 },
+  );
 };

@@ -5,4 +5,4 @@ export const CreateSession = z.object({
   password: z.string(),
 });
 
-export type CreateSession = z.infer<typeof CreateSession>
+export type CreateSession = z.infer<typeof CreateSession>;

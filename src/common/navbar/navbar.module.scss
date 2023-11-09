@@ -1,5 +1,5 @@
-@use 'public/assets/stylesheets/colors' as *;
-@use 'public/assets/stylesheets/shadows';
+@use "public/assets/stylesheets/colors" as *;
+@use "public/assets/stylesheets/shadows";
 
 .container {
   @extend .shadow-light-surface-40;
