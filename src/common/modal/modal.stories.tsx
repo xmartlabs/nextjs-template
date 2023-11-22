@@ -1,10 +1,9 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import styles from "pages/home/home.module.scss";
+import { StoryFn, Meta } from "@storybook/react";
 import { Button } from "@/common/button";
 import { useState } from "react";
 import { Modal, ModalSizes } from "./modal";
 
-export default {
+const meta: Meta<typeof Modal> = {
   title: "Common/Modal",
   component: Modal,
   argTypes: {
@@ -30,9 +29,10 @@ export default {
       </span>
     ),
   },
-} as unknown as ComponentMeta<typeof Modal>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Modal> = (args) => {
+const Template: StoryFn<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(true);
   return isOpen ? (
     <Modal {...args} onClose={() => setIsOpen(false)} />
@@ -61,8 +61,8 @@ WithoutCloseButton.args = {
 export const WithChildren = Template.bind({});
 WithChildren.args = {
   children: (
-    <div className={styles.modalContent}>
-      <h3 className={styles.modalTitle}>Title</h3>
+    <div>
+      <h3>Title</h3>
       <span>
         Pellentesque habitant morbi tristique senectus et netus et malesuada
         fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
@@ -70,7 +70,7 @@ WithChildren.args = {
         egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
         leo.
       </span>
-      <div className={styles.modalFooter}>
+      <div>
         <Button bColor="secondary">Cancel</Button>
         <Button>Accept</Button>
       </div>

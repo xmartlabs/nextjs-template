@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { TextField } from "./text-field";
-import MailSVG from "public/assets/icons/mail.svg";
-import CloseSVG from "public/assets/icons/close.svg";
+import MailIcon from "@/common/server/MailIcon";
+import CloseIcon from "@/common/server/CloseIcon";
 
 describe("TextField", () => {
   it("should render successfully", async () => {
@@ -16,8 +16,8 @@ describe("TextField", () => {
         name="email"
         placeholder="Email"
         onChange={() => null}
-        leftIcon={MailSVG}
-        rightIcon={CloseSVG}
+        leftIcon={MailIcon}
+        rightIcon={CloseIcon}
       />,
     );
     expect(el.getByTestId("left-icon")).toBeTruthy();
@@ -37,7 +37,7 @@ describe("TextField", () => {
         name="email"
         helperText="Helper"
         onChange={() => null}
-        helperIcon={CloseSVG}
+        helperIcon={CloseIcon}
       />,
     );
     expect(el.findByText("Helper")).toBeTruthy();

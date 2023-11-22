@@ -1,5 +1,5 @@
 x-common: &common
-  image: "node:20.8.1"
+  image: "node:20.9.0"
   when:
     - event: pull_request
   environment:
