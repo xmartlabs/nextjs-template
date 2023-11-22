@@ -7,7 +7,7 @@ import CloseIcon from "@/common/server/CloseIcon";
 describe("TextField", () => {
   it("should render successfully", async () => {
     const el = render(<TextField name="email" onChange={() => null} />);
-    expect(el.getByTestId("input")).toBeTruthy();
+    expect(el.findByTestId("input")).toBeTruthy();
   });
 
   it("should render with Icons", async () => {
@@ -20,8 +20,8 @@ describe("TextField", () => {
         rightIcon={CloseIcon}
       />,
     );
-    expect(el.getByTestId("left-icon")).toBeTruthy();
-    expect(el.getByTestId("right-icon")).toBeTruthy();
+    expect(el.findByTestId("left-icon")).toBeTruthy();
+    expect(el.findByTestId("right-icon")).toBeTruthy();
   });
 
   it("should render with Label", async () => {
@@ -40,7 +40,8 @@ describe("TextField", () => {
         helperIcon={CloseIcon}
       />,
     );
+
     expect(el.findByText("Helper")).toBeTruthy();
-    expect(el.getByTestId("helper-icon")).toBeTruthy();
+    expect(el.findByTestId("helper-icon")).toBeTruthy();
   });
 });
