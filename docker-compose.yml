@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    container_name: nextjs-template-app
+    image: nextjs-template-img
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8080:3000
+    env_file:
+      - .env.production
