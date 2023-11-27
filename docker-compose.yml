@@ -5,9 +5,11 @@ services:
     image: nextjs-template-img
     build:
       context: ./
+      args:
+        NODE_ENV: production
+        NODE_VERSION: ${NODE_VERSION:-20.9.0}
       dockerfile: Dockerfile
-    volumes:
-      - .:/app
+
     ports:
       - 8080:3000
     env_file:
