@@ -57,12 +57,12 @@ npm run dev
 ```
 **Run the app using Docker**
 
-To run the app in a Docker container in production mode:
-
 ```bash
 docker compose -f docker-compose.[env-name].yml --env-file .env.[env-name].local up
 ```
+There is no need to run `npm install`
 
+    The container is configured to use anonymous volumes in development mode, this way the node_modules are persisted internally so that the dependencies are installed once.
 
 ### Accessing the Storybook
 
