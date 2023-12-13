@@ -9,8 +9,9 @@ services:
         NODE_ENV: production
         NODE_VERSION: ${NODE_VERSION:-20.9.0}
       dockerfile: Dockerfile
+      target: prod-runner
 
     ports:
       - 8080:3000
     env_file:
-      - .env.production
+      - .env.production.local
