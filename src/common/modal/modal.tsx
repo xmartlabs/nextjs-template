@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { classnames } from "@/helpers/utils";
-import CloseIcon from "@/common/Icons/CloseIcon";
+import CloseIcon from "@/common/icons/CloseIcon";
 import modalStyles from "./modal.module.scss";
 
 export enum ModalSizes {

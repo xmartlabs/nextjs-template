@@ -1,8 +1,8 @@
 import { StoryFn, Meta } from "@storybook/react";
 import { useState } from "react";
 import { TextArea, TextAreaStatus } from "./text-area";
-import MailIcon from "@/common/Icons/MailIcon";
-import CloseIcon from "@/common/Icons/CloseIcon";
+import MailIcon from "@/common/icons/MailIcon";
+import CloseIcon from "@/common/icons/CloseIcon";
 
 const ICONS = {
   MailIcon,

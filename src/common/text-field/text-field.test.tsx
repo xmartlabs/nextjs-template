@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { TextField } from "./text-field";
-import MailIcon from "@/common/Icons/MailIcon";
-import CloseIcon from "@/common/Icons/CloseIcon";
+import MailIcon from "@/common/icons/MailIcon";
+import CloseIcon from "@/common/icons/CloseIcon";
 
 describe("TextField", () => {
   it("should render successfully", async () => {
