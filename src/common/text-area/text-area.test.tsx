@@ -1,12 +1,12 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { TextArea } from "./text-area";
-import CloseSVG from "public/assets/icons/close.svg";
+import CloseIcon from "@/common/icons/CloseIcon";
 
 describe("TextArea", () => {
   it("should render successfully", async () => {
     const el = render(<TextArea name="random" onChange={() => null} />);
-    expect(el.getByTestId("textarea")).toBeTruthy();
+    expect(el.findByTestId("textarea")).toBeTruthy();
   });
 
   it("should render with Label", async () => {
@@ -22,11 +22,11 @@ describe("TextArea", () => {
         name="email"
         helperText="Helper"
         onChange={() => null}
-        helperIcon={CloseSVG}
+        helperIcon={CloseIcon}
       />,
     );
     expect(el.findByText("Helper")).toBeTruthy();
-    expect(el.getByTestId("helper-icon")).toBeTruthy();
+    expect(el.findByTestId("helper-icon")).toBeTruthy();
   });
 
   it("should render with MaxLength", async () => {

@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Requirements
 
-- Node 20.8.1
+- Node 20.9.0
 - NPM 10.1.0
 
 ## Getting Started

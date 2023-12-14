@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { classnames } from "@/helpers/utils";
-import CloseSVG from "assets/icons/close.svg";
+import CloseIcon from "@/common/icons/CloseIcon";
 import modalStyles from "./modal.module.scss";
 
 export enum ModalSizes {
@@ -44,6 +44,13 @@ export const Modal = ({
 
   if (!isOpen) return null;
 
+  let portalRoot = document.getElementById("modal");
+  if (!portalRoot) {
+    portalRoot = document.createElement("div");
+    portalRoot.setAttribute("id", "modal");
+    document.body.appendChild(portalRoot);
+  }
+
   return ReactDOM.createPortal(
     <div className={modalStyles.overlay}>
       <div
@@ -62,7 +69,7 @@ export const Modal = ({
             type="button"
             onClick={onClose}
           >
-            <CloseSVG aria-label="Close" />
+            <CloseIcon aria-label="Close"></CloseIcon>
           </button>
         )}
         {children}

@@ -1,12 +1,12 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import { useState } from "react";
 import { TextField, TextFieldStatus } from "./text-field";
-import MailSVG from "../../assets/icons/mail.svg";
-import CloseSVG from "../../assets/icons/close.svg";
+import MailIcon from "@/common/icons/MailIcon";
+import CloseIcon from "@/common/icons/CloseIcon";
 
 const ICONS = {
-  MailSVG,
-  CloseSVG,
+  MailIcon,
+  CloseIcon,
   undefined,
 };
 
@@ -58,10 +58,10 @@ export default {
   },
   args: {
     name: "example",
-  } as unknown as ComponentMeta<typeof TextField>,
+  } as unknown as Meta<typeof TextField>,
 };
 
-const Template: ComponentStory<typeof TextField> = (args) => {
+const Template: StoryFn<typeof TextField> = (args) => {
   const [inputState, setInputState] = useState("");
   const handleIChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputState(e.target.value);
@@ -73,20 +73,20 @@ export const Default = Template.bind({});
 
 export const WithHelperText = Template.bind({});
 WithHelperText.args = {
-  helperIcon: MailSVG,
+  helperIcon: MailIcon,
   helperText: "This is just a recommendation",
 };
 
 export const WithStatusSuccess = Template.bind({});
 WithStatusSuccess.args = {
-  helperIcon: MailSVG,
+  helperIcon: MailIcon,
   helperText: "This is just a recommendation",
   status: TextFieldStatus.success,
 };
 
 export const WithStatusError = Template.bind({});
 WithStatusError.args = {
-  helperIcon: MailSVG,
+  helperIcon: MailIcon,
   helperText: "This is just a recommendation",
   status: TextFieldStatus.error,
 };
@@ -103,13 +103,13 @@ WithLabel.args = {
 
 export const WithIcons = Template.bind({});
 WithIcons.args = {
-  leftIcon: MailSVG,
-  rightIcon: CloseSVG,
+  leftIcon: MailIcon,
+  rightIcon: CloseIcon,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  helperIcon: CloseSVG,
+  helperIcon: CloseIcon,
   helperText: "Input disabled",
 };

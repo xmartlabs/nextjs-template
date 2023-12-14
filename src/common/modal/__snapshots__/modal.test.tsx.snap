@@ -17,32 +17,25 @@ exports[`Modal > should render successfully 1`] = `
         type="button"
       >
         <svg
-          aria-label="Close"
+          fill="none"
+          height="24"
           viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <symbol
-            fill="none"
-            id="0e3644c6"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-            <path
-              d="M6 6L18 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </symbol>
-          <use
-            href="#0e3644c6"
+          <path
+            d="M18 6L6 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M6 6L18 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
           />
         </svg>
       </button>

@@ -1,6 +1,6 @@
 @use "sass:list";
-@use "../../assets/stylesheets/text-styles.scss";
-@import "../../assets/stylesheets/colors";
+@use "public/assets/stylesheets/text-styles.scss";
+@import "public/assets/stylesheets/colors";
 
 $input-colors: (
   default: (

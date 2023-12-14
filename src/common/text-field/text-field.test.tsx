@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { TextField } from "./text-field";
-import MailSVG from "public/assets/icons/mail.svg";
-import CloseSVG from "public/assets/icons/close.svg";
+import MailIcon from "@/common/icons/MailIcon";
+import CloseIcon from "@/common/icons/CloseIcon";
 
 describe("TextField", () => {
   it("should render successfully", async () => {
     const el = render(<TextField name="email" onChange={() => null} />);
-    expect(el.getByTestId("input")).toBeTruthy();
+    expect(el.findByTestId("input")).toBeTruthy();
   });
 
   it("should render with Icons", async () => {
@@ -16,12 +16,12 @@ describe("TextField", () => {
         name="email"
         placeholder="Email"
         onChange={() => null}
-        leftIcon={MailSVG}
-        rightIcon={CloseSVG}
+        leftIcon={MailIcon}
+        rightIcon={CloseIcon}
       />,
     );
-    expect(el.getByTestId("left-icon")).toBeTruthy();
-    expect(el.getByTestId("right-icon")).toBeTruthy();
+    expect(el.findByTestId("left-icon")).toBeTruthy();
+    expect(el.findByTestId("right-icon")).toBeTruthy();
   });
 
   it("should render with Label", async () => {
@@ -37,10 +37,11 @@ describe("TextField", () => {
         name="email"
         helperText="Helper"
         onChange={() => null}
-        helperIcon={CloseSVG}
+        helperIcon={CloseIcon}
       />,
     );
+
     expect(el.findByText("Helper")).toBeTruthy();
-    expect(el.getByTestId("helper-icon")).toBeTruthy();
+    expect(el.findByTestId("helper-icon")).toBeTruthy();
   });
 });
