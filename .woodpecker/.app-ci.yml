@@ -4,7 +4,10 @@ x-common: &common
     - event: pull_request
   environment:
     - NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
-
+  cache:
+    mount:
+      - ./node_modules
+      - ./.next/cache
 pipeline:
   setup:
     <<: *common

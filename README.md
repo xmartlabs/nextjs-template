@@ -4,11 +4,13 @@
 
 Before you begin, ensure you have met the following requirements:
 
-- NodeJs v20.9.0
-- Docker
+- Node 20.8.1
+- NPM 10.1.0
 
 ### NextJS version
+
 - v14.0.4
+
 ## Getting Started
 
 These instructions will get your copy of the project up and running on your local machine for development and testing purposes.
@@ -47,7 +49,6 @@ For example, if NODE_ENV is development and you define a variable in both .env.d
 
 _The allowed values for NODE_ENV are production, development and test._
 
-
 ### Running the App
 
 To run the app locally:
@@ -55,6 +56,7 @@ To run the app locally:
 ```bash
 npm run dev
 ```
+
 **Run the app using Docker**
 
 _There is **no need** to run `npm install`. The container is configured to use anonymous volumes in development mode, this way the node_modules are persisted internally so that the dependencies are installed once._
