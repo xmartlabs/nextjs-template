@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  app:
+    env_file:
+      - .env.development.local
+    container_name: nextjs-template-app-dev
+    image: nextjs-template-img-dev
+    build:
+      context: ./
+      args:
+        NODE_ENV: development
+        NODE_VERSION: ${NODE_VERSION:-20.9.0}
+      dockerfile: Dockerfile
+      target: dev-runner
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ${APP_LOGS}:/app/logs
+
+    depends_on:
+      - db
+
+    ports:
+      - 8081:3000
+
+  db:
+    env_file:
+      - .env.database.development.local
+    container_name: nextjs-template-db
+    image: postgres:16
+    ports:
+      - 54323:5432
+    volumes:
+      - ${POSTGRES_DATA_DIR}:/var/lib/postgresql/data
