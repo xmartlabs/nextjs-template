@@ -1,3 +1,4 @@
+'use client'
 import { constants } from "@/config/constants";
 import { ApiError } from "./api-error";
 import { ErrorCode } from "@/types/error-code";
@@ -10,7 +11,7 @@ enum HttpMethod {
   Delete = "DELETE",
 }
 
-// NOTE: This class is inteded to be used on the client only. Requests from the backend
+// NOTE: This class is intended to be used on the client only. Requests from the backend
 // to third-party tools should be done using `fetch` directly or another kind of service.
 class ApiServiceClass {
   private addedHeaders: Headers;
@@ -36,7 +37,7 @@ class ApiServiceClass {
   ) {
     const updatedConfig = { ...config };
     updatedConfig.headers = { ...this.addedHeaders, ...(config.headers || {}) };
-    const fullURL = `${constants.apiBaseURL}/${path}`;
+    const fullURL = new URL(path, constants.apiBaseURL);
     const response = await fetch(fullURL, {
       method,
       ...updatedConfig,
