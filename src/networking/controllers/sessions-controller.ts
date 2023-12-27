@@ -10,9 +10,11 @@ import { CreateSession } from "@/types/session";
 */
 class SessionsController {
   static login(email: string, password: string) {
-    return ApiService.post<CreateSession>(API_ROUTES.SESSIONS, {
-      email,
-      password,
+    return ApiService.post(API_ROUTES.SESSIONS, {
+      body: JSON.stringify({
+        email,
+        password,
+      }),
     });
   }
 }
