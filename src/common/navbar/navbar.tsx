@@ -3,10 +3,11 @@ import styles from "./navbar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import nextLogo from "public/next.svg";
+import { Container } from "../container";
 
 export const Navbar = () => (
   <div className={styles.container}>
-    <div className={globalStyles.genericContainer}>
+    <Container>
       <div className={styles.internalContainer}>
         <div>
           <Link href="/">
@@ -21,6 +22,6 @@ export const Navbar = () => (
           </nav>
         </div>
       </div>
-    </div>
+    </Container>
   </div>
 );
