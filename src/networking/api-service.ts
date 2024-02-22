@@ -14,10 +14,12 @@ enum HttpMethod {
 // NOTE: This class is intended to be used on the client only. Requests from the backend
 // to third-party tools should be done using `fetch` directly or another kind of service.
 class ApiServiceClass {
-  private addedHeaders: Headers;
+  private addedHeaders: { [key: string]: string };
 
   constructor() {
-    this.addedHeaders = new Headers();
+    this.addedHeaders = {
+      "Content-Type": "application/json",
+    };
   }
 
   // NOTE: `data` is of `any` type since it's most likely an instance of `Error` or
@@ -55,9 +57,7 @@ class ApiServiceClass {
   }
 
   setHeaders(newHeaders: { [key: string]: string }) {
-    Object.entries(newHeaders).forEach(([key, value]) =>
-      this.addedHeaders.set(key, value),
-    );
+    this.addedHeaders = { ...this.addedHeaders, ...newHeaders };
   }
 
   get(path: string, config: RequestInit = {}) {
