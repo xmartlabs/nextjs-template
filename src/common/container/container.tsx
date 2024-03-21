@@ -1,4 +1,4 @@
-import { classnames } from "@/helpers/utils"; 
+import { classnames } from "@/helpers/utils";
 import styles from "./container.module.scss";
 
 export type ContainerProps = React.HTMLProps<HTMLDivElement> & {

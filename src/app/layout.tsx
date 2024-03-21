@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Xmartlabs Template",
   description: "Web site created with NextJS",
   icons: {
-    icon: '/icon.ico',
+    icon: "/icon.ico",
   },
 };
 

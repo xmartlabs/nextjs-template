@@ -10,8 +10,8 @@ enum Method {
   delete = "delete",
 }
 
-const fetchMock = vi.fn()
-vi.stubGlobal('fetch', fetchMock)
+const fetchMock = vi.fn();
+vi.stubGlobal("fetch", fetchMock);
 
 describe("ApiService", () => {
   const sharedExamples = (method: Method) => {
@@ -25,32 +25,32 @@ describe("ApiService", () => {
             message: "error message",
           },
         },
-      })
+      }),
     };
     const okResponse = {
       ok: true,
       json: () => ({
         response: {
           data: {
-            foo: 'foo',
+            foo: "foo",
             bar: 10,
           },
-        }
-      })
+        },
+      }),
     };
     const setupTest = () => {
       return ApiService[method](url);
     };
 
     it(`calls the '${method}' method of axios`, async () => {
-      fetchMock.mockResolvedValueOnce (okResponse);
+      fetchMock.mockResolvedValueOnce(okResponse);
       await setupTest();
 
       expect(fetch).toHaveBeenCalledTimes(1);
     });
 
     it("creates an ApiError when a network error is raised", async () => {
-      fetchMock.mockResolvedValueOnce (networkError);
+      fetchMock.mockResolvedValueOnce(networkError);
       try {
         await setupTest();
         throw new Error("Error was not caught");

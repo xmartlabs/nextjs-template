@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { constants } from "@/config/constants";
 import { ApiError } from "./api-error";
 import { ErrorCode } from "@/types/error-code";
