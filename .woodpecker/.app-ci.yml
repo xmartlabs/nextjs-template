@@ -27,7 +27,7 @@ pipeline:
     <<: *common
     group: build
     commands:
-      - npm run prettier:check -- --support-info
+      - npm run prettier:check
   sass-lint:
     <<: *common
     group: build
